@@ -8,12 +8,14 @@ import locale from 'element-ui/lib/locale/lang/en'
 import 'element-ui/lib/theme-chalk/index.css'
 
 // vee element
+import VeeValidate from 'vee-validate'
 import VeeElement from 'vee-element'
 import validator from './config/validator'
 
 // plugins
+Vue.use(VeeValidate, { fieldsBagName: 'veeFields', errorBagName: 'veeErrors' })
 Vue.use(ElementUI, { locale })
-Vue.use(VeeElement, validator, true)
+Vue.use(VeeElement, validator(), true)
 
 // additional config
 Vue.config.devtools = true
